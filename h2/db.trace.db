@@ -1,0 +1,25 @@
+2021-12-11 10:41:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP TABLE ERS_REIMBURSEMENT_TYPEDROP TABLE[*] ERS_USER_ROLESDROP TABLE ERS_USERSDROP TABLE ERS_REIMBURSEMENTDROP VIEW USERSDROP VIEW REIMBURSEMENT"; SQL statement:
+DROP TABLE ERS_REIMBURSEMENT_TYPEDROP TABLE ERS_USER_ROLESDROP TABLE ERS_USERSDROP TABLE ERS_REIMBURSEMENTDROP VIEW usersDROP VIEW reimbursement [42000-200]
+2021-12-11 10:47:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_STATUS (
+	REIMB_STATUS_ID serial PRIMARY KEY,
+	REIMB_STATUS varchar(10)
+); [42101-200]
+2021-12-11 10:50:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_REIMBURSEMENT_STATUS" because "REIMBURSEMENT, CONSTRAINT_94D4" depends on it; SQL statement:
+DROP TABLE ERS_REIMBURSEMENT_STATUS; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
+	at util.H2Util.dropTables(H2Util.java:112)
+	at MainTesting.main(MainTesting.java:57)

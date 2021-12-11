@@ -26,6 +26,10 @@ public class User {
         this.roleId = roleId;
         this.role = role;
     }
+
+
+
+
         // constructor without userId( because default in the sql) and role (because not in the original user table)
         // to use in the sql insert
     public User(String userName, String password, String firstName, String lastName, String email,

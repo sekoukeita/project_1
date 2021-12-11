@@ -1,0 +1,38 @@
+2021-12-11 10:47:26 ERROR H2Util:96 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_STATUS (
+	REIMB_STATUS_ID serial PRIMARY KEY,
+	REIMB_STATUS varchar(10)
+); [42101-200]
+2021-12-11 10:50:33 ERROR H2Util:115 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "ERS_REIMBURSEMENT_STATUS" because "REIMBURSEMENT, CONSTRAINT_94D4" depends on it; SQL statement:
+DROP TABLE ERS_REIMBURSEMENT_STATUS; [90107-200]
+
+2021-12-11 12:28:34 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (2)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:28:34 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:28:34 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:36:47 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (2)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:36:47 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:36:47 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:37:12 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (2)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:37:12 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:37:12 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:39:27 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (2)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:39:27 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 12:39:27 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_A287: PUBLIC.ERS_USERS FOREIGN KEY(USER_ROLE_ID) REFERENCES PUBLIC.ERS_USER_ROLES(ERS_USER_ROLE_ID) (1)"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23506-200]
+2021-12-11 17:09:49 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_A ON PUBLIC.ERS_USERS(ERS_USERNAME) VALUES 1"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
+2021-12-11 17:12:53 ERROR UserDaoImpl:93 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_A ON PUBLIC.ERS_USERS(ERS_USERNAME) VALUES 1"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
+2021-12-11 17:12:54 ERROR ReimbursementDaoImpl:129 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_RESOLVER) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (2)"; SQL statement:
+UPDATE ers_reimbursement SET reimb_resolved = ?, reimb_resolver = ?, reimb_status_id = ? WHERE reimb_id = ?; [23506-200]

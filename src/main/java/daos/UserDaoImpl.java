@@ -1,6 +1,7 @@
 package daos;
 
 import models.User;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,6 +13,9 @@ public class UserDaoImpl implements UserDao {
     String url;
     String username;
     String password;
+
+    // create the logger object to log events in the file project_1.log
+    Logger logger = Logger.getLogger(UserDaoImpl.class);
 
     // CONSTRUCTORS
 
@@ -43,7 +47,7 @@ public class UserDaoImpl implements UserDao {
             }
         }
         catch (SQLException e){
-            e.printStackTrace();
+            logger.error(e);
         }
         return users;
     }
@@ -65,7 +69,7 @@ public class UserDaoImpl implements UserDao {
             }
         }
         catch (SQLException e){
-            e.printStackTrace();
+            logger.error(e);
         }
         return user;
     }
@@ -86,7 +90,7 @@ public class UserDaoImpl implements UserDao {
             ps.executeUpdate();
         }
         catch (SQLException e){
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -114,7 +118,7 @@ public class UserDaoImpl implements UserDao {
             ps.executeUpdate();
         }
         catch (SQLException e){
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -129,7 +133,7 @@ public class UserDaoImpl implements UserDao {
             ps.executeUpdate();
         }
         catch (SQLException e){
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 }

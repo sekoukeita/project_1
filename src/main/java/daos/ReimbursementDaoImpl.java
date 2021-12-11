@@ -1,6 +1,7 @@
 package daos;
 
 import models.Reimbursement;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -14,12 +15,21 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
     String username;
     String password;
 
+    // create the logger object to log events in the file project_1.log
+    Logger logger = Logger.getLogger(ReimbursementDaoImpl.class);
+
     // CONSTRUCTORS
 
     public ReimbursementDaoImpl() {
         this.url = "jdbc:postgresql://" + System.getenv("AWS_RDS_ENDPOINT") + "/ersdatabase";
         this.username = System.getenv("RDS_USERNAME");
         this.password = System.getenv("RDS_PASSWORD");
+    }
+
+    public ReimbursementDaoImpl(String url, String username, String password) {
+        this.url = url;
+        this.username = username;
+        this.password = password;
     }
 
     @Override
@@ -42,7 +52,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
             }
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
         return reimbursements;
     }
@@ -67,7 +77,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
             }
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
 
         return reimbursement;
@@ -97,7 +107,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
             ps.executeUpdate();
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -116,7 +126,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
             ps.executeUpdate();
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -130,7 +140,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
             ps.executeUpdate();
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 }

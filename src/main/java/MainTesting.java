@@ -5,6 +5,7 @@ import daos.UserDaoImpl;
 import io.javalin.http.util.JsonEscapeUtil;
 import models.Reimbursement;
 import models.User;
+import util.H2Util;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -39,18 +40,22 @@ public class MainTesting {
         //////////////// Test ReimbursementDao ///////////////////////
         ReimbursementDao reimbDao = new ReimbursementDaoImpl();
 
-        List<Reimbursement> reimbursements = reimbDao.getReimbursements();
+       /* List<Reimbursement> reimbursements = reimbDao.getReimbursements();
         System.out.println(reimbursements);
-        System.out.println(reimbursements.size());
+        System.out.println(reimbursements.size());*/
 
-        /*Reimbursement reimbursement = reimbDao.getReimbursement(10);
+       /* Reimbursement reimbursement = reimbDao.getReimbursement(2);
         System.out.println(reimbursement);*/
 
-       /* Reimbursement reimb = new Reimbursement(2000.0, LocalDateTime.of(2021, 12, 29, 0, 0),
-                "Exam prep", 3, 1, 4);
-        reimbDao.createReimbursement(reimb);*/
+        Reimbursement reimb = new Reimbursement(2000.0, LocalDateTime.of(2021, 12, 1, 0, 0),
+                "Exam prep", 6, 1, 4);
+        reimbDao.createReimbursement(reimb);
 
-        //reimbDao.deleteReimbursement(9);
+        //reimbDao.deleteReimbursement(11);
+
+       /* H2Util.createTables();
+        H2Util.dropTables();*/
+
 
 
 
