@@ -11,12 +11,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserDaoImplITTest {
+class UserDaoImplIT {
 
     UserDao userDao;
 
     // constructor that creates a userDao object that rather than connecting to the production db, connects to the H2 db.
-    public UserDaoImplITTest() {
+    public UserDaoImplIT() {
         this.userDao = new UserDaoImpl(H2Util.url, H2Util.username, H2Util.password);
     }
 

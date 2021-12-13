@@ -36,3 +36,15 @@ INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
 INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
 2021-12-11 17:12:54 ERROR ReimbursementDaoImpl:129 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Referential integrity constraint violation: "CONSTRAINT_94D: PUBLIC.ERS_REIMBURSEMENT FOREIGN KEY(REIMB_RESOLVER) REFERENCES PUBLIC.ERS_USERS(ERS_USERS_ID) (2)"; SQL statement:
 UPDATE ers_reimbursement SET reimb_resolved = ?, reimb_resolver = ?, reimb_status_id = ? WHERE reimb_id = ?; [23506-200]
+2021-12-11 21:55:44 ERROR UserDaoImpl:93 - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "ers_users_user_email_key"
+  Detail: Key (user_email)=(K_sekou9@yahoo.fr) already exists.
+2021-12-11 21:57:50 ERROR UserDaoImpl:93 - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "ers_users_user_email_key"
+  Detail: Key (user_email)=(K_sekou9@yahoo.fr) already exists.
+2021-12-11 22:24:14 ERROR UserDaoImpl:93 - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "ers_users_user_email_key"
+  Detail: Key (user_email)=(K_sekou9@yahoo.fr) already exists.
+2021-12-11 22:25:32 ERROR UserDaoImpl:93 - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "ers_users_user_email_key"
+  Detail: Key (user_email)=(K_sekou9@yahoo.fr) already exists.
+2021-12-11 22:47:36 ERROR UserDaoImpl:121 - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "ers_users_user_email_key"
+  Detail: Key (user_email)=(K_sekou@yahoo.fr) already exists.
+2021-12-11 22:50:01 ERROR UserDaoImpl:121 - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "ers_users_user_email_key"
+  Detail: Key (user_email)=(K_sekou@yahoo.fr) already exists.

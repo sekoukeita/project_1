@@ -13,13 +13,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ReimbursementDaoImplITTest {
+class ReimbursementDaoImplIT {
 
     ReimbursementDao reimbursementDao;
     UserDao userDao;
 
     // will be used by the integration test constructor to reach the H2 db rather than the production db.
-    public ReimbursementDaoImplITTest() {
+    public ReimbursementDaoImplIT() {
         this.reimbursementDao = new ReimbursementDaoImpl(H2Util.url, H2Util.username, H2Util.password);
         this.userDao = new UserDaoImpl(H2Util.url, H2Util.username, H2Util.password);
     }
@@ -194,6 +194,5 @@ class ReimbursementDaoImplITTest {
 
         //ASSERT
         assertNull(actualResult);
-
     }
 }

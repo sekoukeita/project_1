@@ -48,6 +48,20 @@ public class Reimbursement {
         this.type = type;
     }
 
+    // constructor to use with the insert sql(has id for testing the update method which needs it)
+    // used to create a reimbursement. For that operation, information about resolver are not available yet.
+    // they will be provided at updated (approve or denied)
+    public Reimbursement(Integer reimbursementId, Double amount, LocalDateTime dateSubmitted, String description, Integer authorId,
+                         Integer statusId, Integer typeId) {
+        this.reimbursementId = reimbursementId;
+        this.amount = amount;
+        this.dateSubmitted = dateSubmitted;
+        this.description = description;
+        this.authorId = authorId;
+        this.statusId = statusId;
+        this.typeId = typeId;
+    }
+
     // constructor to use with the insert sql
         // used to create a reimbursement. For that operation, information about resolver are not available yet.
        // they will be provided at updated (approve or denied)
