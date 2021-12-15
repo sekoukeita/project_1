@@ -10,6 +10,8 @@ public interface UserDao {
 
     User getUser(Integer userId);
 
+    User getUser(String username);
+
     void createUser(User user);
 
     void updateUser(User user); // update by patch. update everything but the userId

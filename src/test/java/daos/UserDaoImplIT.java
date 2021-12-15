@@ -62,7 +62,7 @@ class UserDaoImplIT {
     }
 
     @Test
-    void getUser() {
+    void getUserById() {
         //ARRANGE
         User expectedResult = new User(1, "secksonr9", "17071980", "Sekou",
                 "Keita", "K_sekou9@yahoo.fr", 2, "Finance Manager");
@@ -72,6 +72,22 @@ class UserDaoImplIT {
 
         //ACT
         User actualResult = userDao.getUser(expectedResult.getUserId());
+
+        //ASSERT
+        assertEquals(expectedResult.toString(), actualResult.toString());
+    }
+
+    @Test
+    void getUserByUserName() {
+        //ARRANGE
+        User expectedResult = new User(1, "secksonr9", "17071980", "Sekou",
+                "Keita", "K_sekou9@yahoo.fr", 2, "Finance Manager");
+
+        userDao.createUser(new User( "secksonr9", "17071980", "Sekou",
+                "Keita", "K_sekou9@yahoo.fr", 2));
+
+        //ACT
+        User actualResult = userDao.getUser(expectedResult.getUserName());
 
         //ASSERT
         assertEquals(expectedResult.toString(), actualResult.toString());

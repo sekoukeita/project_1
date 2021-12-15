@@ -14,6 +14,9 @@ public class User {
     private String role;
 
     // CONSTRUCTORS
+        // use by jackson library to create the user object form the body using ctx.bodyAsClass();
+    public User() {
+    }
 
     public User(Integer userId, String userName, String password, String firstName, String lastName, String email,
                 Integer roleId, String role) {
@@ -27,10 +30,13 @@ public class User {
         this.role = role;
     }
 
+    public User(String userName, String password, Integer roleId) {
+        this.userName = userName;
+        this.password = password;
+        this.roleId = roleId;
+    }
 
-
-
-        // constructor without userId( because default in the sql) and role (because not in the original user table)
+    // constructor without userId( because default in the sql) and role (because not in the original user table)
         // to use in the sql insert
     public User(String userName, String password, String firstName, String lastName, String email,
                 Integer roleId) {

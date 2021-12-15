@@ -1,12 +1,18 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
 public class Reimbursement {
 
     // MEMBER VARIABLES
-
     private Integer reimbursementId;
     private Double amount;
     private LocalDateTime dateSubmitted; // LocalDateTime is the correspondent of postgresql timestamp.
@@ -25,6 +31,10 @@ public class Reimbursement {
     private String type;
 
     // CONSTRUCTORS
+
+    // use by jackson library to create the user object form the body using ctx.bodyAsClass();
+    public Reimbursement() {
+    }
 
     public Reimbursement(Integer reimbursementId, Double amount, LocalDateTime dateSubmitted, LocalDateTime dateResolved, String description,
                          byte[] receipt, Integer authorId, String authorFirstName, String authorLastName, Integer resolverId,

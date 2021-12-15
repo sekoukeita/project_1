@@ -31,30 +31,31 @@ public class UserService {
         return userDao.getUser(userId);
     }
 
+    public User getUser(String username){
+        return userDao.getUser(username);
+    }
+
 
     public Boolean createUser(User user){
 
         if ((user.getUserName().length() > 50) | (getListOfUsernames().contains(user.getUserName())) | (user.getUserName().isEmpty())){
             if (user.getUserName().length() > 50){
                 System.out.println("The username should not be longer than 50 characters!");
-                return false;
             }
             else if (getListOfUsernames().contains(user.getUserName())){
                 System.out.println("This username already exists!. Enter another one.");
-                return false;
             }
             else if (user.getUserName().isEmpty())
                 System.out.println("Enter a username, please!");
-                return false;
+            return false;
         }
         else if ((user.getPassword().length() > 50) | (user.getPassword().isEmpty())){
             if (user.getPassword().length() > 50){
                 System.out.println("The password should not be longer than 50 characters!");
-                return false;
             }
             else if (user.getPassword().isEmpty())
                 System.out.println("Enter a password, please!");
-                return false;
+            return false;
         }
         else if (user.getFirstName().length() > 50){
             System.out.println("The first name should be less than 50 characters");
@@ -67,11 +68,9 @@ public class UserService {
         else if ((user.getEmail().length() > 50) | (getListOfEmails().contains(user.getEmail())) | (user.getEmail().isEmpty())){
             if (user.getEmail().length() > 50){
                 System.out.println("The email should not be longer than 50 characters!");
-                return false;
             }
             else if (getListOfEmails().contains(user.getEmail())){
                 System.out.println("This email already exists!. Enter another one.");
-                return false;
             }
             else if (user.getEmail().isEmpty())
                 System.out.println("Enter an email, please!");
@@ -82,6 +81,8 @@ public class UserService {
             return true;
         }
     }
+
+
 
     public void updateUser(User user){
         userDao.updateUser(user);

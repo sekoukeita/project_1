@@ -75,6 +75,28 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUser(String userName) { // used userName rather than username because that interferes with the username string of conn
+        User user = null;
+
+        try(Connection conn = DriverManager.getConnection(url, username, password)){
+            String sql = "SELECT * FROM users WHERE ers_username = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, userName);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6),
+                        rs.getInt(7), rs.getString(8));
+            }
+        }
+        catch (SQLException e){
+            logger.error(e);
+        }
+        return user;
+    }
+
+    @Override
     public void createUser(User user) {
         try(Connection conn = DriverManager.getConnection(url, username, password)){
             String sql = "INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?);";

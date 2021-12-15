@@ -47,7 +47,7 @@ class UserServiceTest {
     }
 
     @Test
-    void getUser() {
+    void getUserById() {
         //ARRANGE
         User expectedResult = new User(1, "secksonr9", "17071980", "Sekou",
                 "Keita", "K_sekou9@yahoo.fr", 2, "Finance Manager");
@@ -56,6 +56,21 @@ class UserServiceTest {
 
         //ACT
         User actualResult = userService.getUser(expectedResult.getUserId());
+
+        //ASSERT
+        assertEquals(expectedResult.toString(), actualResult.toString());
+    }
+
+    @Test
+    void getUserByUserName() {
+        //ARRANGE
+        User expectedResult = new User(1, "secksonr9", "17071980", "Sekou",
+                "Keita", "K_sekou9@yahoo.fr", 2, "Finance Manager");
+
+        Mockito.when(userDao.getUser(expectedResult.getUserName())).thenReturn(expectedResult);
+
+        //ACT
+        User actualResult = userService.getUser(expectedResult.getUserName());
 
         //ASSERT
         assertEquals(expectedResult.toString(), actualResult.toString());

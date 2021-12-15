@@ -26,8 +26,10 @@ public class MainTesting {
         System.out.println(list);
         System.out.println(list.size());*/
 
-        /*User user = userDao.getUser(4);
-        System.out.println(user);*/
+       /* User user1 = userDao.getUser(8);
+        User user2 = userDao.getUser("Asco");
+        System.out.println("user 1:" + user1);
+        System.out.println("user 2" + user2);*/
 
         /*User user2 = new User("secksonr9", "17071980", "Sekou", "Keita", "K_sekou9@yahoo.fr", 2);
         userDao.createUser(user2);
@@ -61,14 +63,17 @@ public class MainTesting {
 
         //////////////////////Test userService //////////////////////////
         UserService us = new UserService();
-       /* List<User> list = us.getUsers();
+
+        /*List<User> list = us.getUsers();
         System.out.println(list);
         System.out.println(list.size());*/
 
-        /*User user = us.getUser(4);
-        System.out.println(user);*/
+       /* User user1 = us.getUser(4);
+        User user2 = us.getUser("sekoukeita");
+        System.out.println("user1 " + user1);
+        System.out.println("user1 " + user2);*/
 
-       /* User user = new User("husseinkeitajj", "aaaaaa", "", "Keaita", "aaaaaa", 2);
+        /*User user = new User("huskeita", "huss2016", "jhuu", "Keaita", "pr@gmail.com", 2);
         us.createUser(user);*/
 
         /*User user3 = new User(14, "seckon", "17071980", "Sekou", "Keita", "K_sekou@yahoo", 2);
@@ -80,21 +85,21 @@ public class MainTesting {
         //////////////////////Test reimbursementService //////////////////////////
         ReimbursementService rs = new ReimbursementService();
 
-        /*List<Reimbursement> list = rs.getReimbursements();
+        List<Reimbursement> list = rs.getReimbursements();
         System.out.println(list);
-        System.out.println(list.size());*/
+        System.out.println(list.size());
 
         /*Reimbursement reimbursement = rs.getReimbursement(2);
         System.out.println(reimbursement);*/
 
-       /*Reimbursement reimb = new Reimbursement(5.0, LocalDateTime.of(2021, 12, 1, 0, 0),
+      /* Reimbursement reimb = new Reimbursement(5.0, LocalDateTime.of(2021, 12, 1, 0, 0),
                 "Exam prep", 6, 1, 4);
-        rs.createReimbursement(reimb);*/
-
+        rs.createReimbursement(reimb);
+*/
        /* rs.updateReimbursement(16, LocalDateTime.of(2021, 12, 1, 0, 0),
                 4, 2);*/
 
-        rs.deleteReimbursement(15);
+        //rs.deleteReimbursement(15);
 
 
 

@@ -48,3 +48,9 @@ UPDATE ers_reimbursement SET reimb_resolved = ?, reimb_resolver = ?, reimb_statu
   Detail: Key (user_email)=(K_sekou@yahoo.fr) already exists.
 2021-12-11 22:50:01 ERROR UserDaoImpl:121 - org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "ers_users_user_email_key"
   Detail: Key (user_email)=(K_sekou@yahoo.fr) already exists.
+2021-12-14 11:53:17 ERROR UserDaoImpl:94 - org.postgresql.util.PSQLException: FATAL: password authentication failed for user "secksonr9"
+2021-12-14 11:53:45 ERROR UserDaoImpl:94 - org.postgresql.util.PSQLException: FATAL: password authentication failed for user "secksonr9"
+2021-12-14 11:56:29 ERROR UserDaoImpl:94 - org.postgresql.util.PSQLException: FATAL: password authentication failed for user "secksonr9"
+2021-12-14 11:59:04 ERROR UserDaoImpl:94 - org.postgresql.util.PSQLException: FATAL: password authentication failed for user "secksonr9"
+2021-12-14 12:01:43 ERROR UserDaoImpl:94 - org.postgresql.util.PSQLException: FATAL: password authentication failed for user "secksonr9"
+2021-12-14 12:02:08 ERROR UserDaoImpl:94 - org.postgresql.util.PSQLException: FATAL: password authentication failed for user "Asco"
