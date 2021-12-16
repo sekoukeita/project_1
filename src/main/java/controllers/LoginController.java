@@ -19,17 +19,23 @@ public class LoginController {
         String passwordFromLogin = user.getPassword();
         String usernameFromLogin = user.getUserName();
 
-        String passwordFromDb = userService.getUser(usernameFromLogin).getPassword();
-        String usernameFromDb = userService.getUser(usernameFromLogin).getUserName();
+        User userFromDb = userService.getUser(usernameFromLogin);
 
-        if (Objects.equals(passwordFromLogin, passwordFromDb) && Objects.equals(usernameFromLogin, usernameFromDb)){
-            ctx.sessionAttribute("session", user);
-            User userFromDB = userService.getUser(usernameFromLogin);
-            UserDto userDto = new UserDto(userFromDB.getUserId(), userFromDB.getUserName(), userFromDB.getFirstName(),
-                    userFromDB.getLastName(), userFromDB.getRoleId(), userFromDB.getRole());
-            ctx.json(new JsonResponse(true, "Login successful", userDto));
+        if (userFromDb != null){
+            String passwordFromDb = userService.getUser(usernameFromLogin).getPassword();
+            String usernameFromDb = userService.getUser(usernameFromLogin).getUserName();
+            if (Objects.equals(passwordFromLogin, passwordFromDb) && Objects.equals(usernameFromLogin, usernameFromDb)){
+                ctx.sessionAttribute("session", user);
+                User userFromDB = userService.getUser(usernameFromLogin);
+                UserDto userDto = new UserDto(userFromDB.getUserId(), userFromDB.getUserName(), userFromDB.getFirstName(),
+                        userFromDB.getLastName(), userFromDB.getRoleId(), userFromDB.getRole());
+                ctx.json(new JsonResponse(true, "Login successful", userDto));
+            }
+            else{
+                ctx.result("Wrong username or password");
+            }
         }
-        else {
+        else{
             ctx.result("Wrong username or password");
         }
     }

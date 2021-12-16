@@ -13,11 +13,6 @@ public class UserController {
     // reference the userService
     static UserService userService = new UserService();
 
-    /*// Constructor
-    public UserController() {
-        this.userService = new UserService();
-    }*/
-
     // Methods : implementation of handlers
     public static void getUsers(Context ctx){
         List<User> users = userService.getUsers(); //get the list of users with all variables on each user object.
@@ -35,7 +30,7 @@ public class UserController {
         User user = userService.getUser(userId);
         UserDto userDto = new UserDto(user.getUserId(), user.getUserName(), user.getFirstName(), user.getLastName(),
                 user.getRoleId(), user.getRole());
-        ctx.json(user);
+        ctx.json(userDto);
     }
 
     public static void createUser(Context ctx) {
@@ -45,17 +40,17 @@ public class UserController {
             if (user.getUserName().length() > 50){
                 ctx.result("The username should not be longer than 50 characters!");
             }
-            else if (userService.getListOfUsernames().contains(user.getUserName())){
+            if (userService.getListOfUsernames().contains(user.getUserName())){
                 ctx.result("This username already exists!. Enter another one.");
             }
-            else if (user.getUserName().isEmpty())
+            if (user.getUserName().isEmpty())
                 ctx.result("Enter a username, please!");
         }
         else if ((user.getPassword().length() > 50) | (user.getPassword().isEmpty())){
             if (user.getPassword().length() > 50){
                 ctx.result("The password should not be longer than 50 characters!");
             }
-            else if (user.getPassword().isEmpty())
+            if (user.getPassword().isEmpty())
                 ctx.result("Enter a password, please!");
         }
         else if (user.getFirstName().length() > 50){
@@ -68,10 +63,10 @@ public class UserController {
             if (user.getEmail().length() > 50){
                 ctx.result("The email should not be longer than 50 characters!");
             }
-            else if (userService.getListOfEmails().contains(user.getEmail())){
+            if (userService.getListOfEmails().contains(user.getEmail())){
                 ctx.result("This email already exists!. Enter another one.");
             }
-            else if (user.getEmail().isEmpty())
+            if (user.getEmail().isEmpty())
                 ctx.result("Enter an email, please!");
         }
         else{

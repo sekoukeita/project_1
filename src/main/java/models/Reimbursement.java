@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
@@ -15,8 +16,10 @@ public class Reimbursement {
     // MEMBER VARIABLES
     private Integer reimbursementId;
     private Double amount;
-    private LocalDateTime dateSubmitted; // LocalDateTime is the correspondent of postgresql timestamp.
-    private LocalDateTime dateResolved;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm a z")
+    private Timestamp dateSubmitted; // LocalDateTime is the correspondent of postgresql timestamp.
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm a z")
+    private Timestamp dateResolved;
     private String description;
     private byte[] receipt;
     private Integer authorId;
@@ -36,7 +39,7 @@ public class Reimbursement {
     public Reimbursement() {
     }
 
-    public Reimbursement(Integer reimbursementId, Double amount, LocalDateTime dateSubmitted, LocalDateTime dateResolved, String description,
+    public Reimbursement(Integer reimbursementId, Double amount, Timestamp dateSubmitted, Timestamp dateResolved, String description,
                          byte[] receipt, Integer authorId, String authorFirstName, String authorLastName, Integer resolverId,
                          String resolverFirstName, String resolverLastName, Integer statusId, String status, Integer typeId,
                          String type) {
@@ -61,7 +64,7 @@ public class Reimbursement {
     // constructor to use with the insert sql(has id for testing the update method which needs it)
     // used to create a reimbursement. For that operation, information about resolver are not available yet.
     // they will be provided at updated (approve or denied)
-    public Reimbursement(Integer reimbursementId, Double amount, LocalDateTime dateSubmitted, String description, Integer authorId,
+    public Reimbursement(Integer reimbursementId, Double amount, Timestamp dateSubmitted, String description, Integer authorId,
                          Integer statusId, Integer typeId) {
         this.reimbursementId = reimbursementId;
         this.amount = amount;
@@ -75,7 +78,7 @@ public class Reimbursement {
     // constructor to use with the insert sql
         // used to create a reimbursement. For that operation, information about resolver are not available yet.
        // they will be provided at updated (approve or denied)
-    public Reimbursement(Double amount, LocalDateTime dateSubmitted, String description, Integer authorId,
+    public Reimbursement(Double amount, Timestamp dateSubmitted, String description, Integer authorId,
                          Integer statusId, Integer typeId) {
         this.amount = amount;
         this.dateSubmitted = dateSubmitted;
@@ -103,19 +106,19 @@ public class Reimbursement {
         this.amount = amount;
     }
 
-    public LocalDateTime getDateSubmitted() {
+    public Timestamp getDateSubmitted() {
         return dateSubmitted;
     }
 
-    public void setDateSubmitted(LocalDateTime dateSubmitted) {
+    public void setDateSubmitted(Timestamp dateSubmitted) {
         this.dateSubmitted = dateSubmitted;
     }
 
-    public LocalDateTime getDateResolved() {
+    public Timestamp getDateResolved() {
         return dateResolved;
     }
 
-    public void setDateResolved(LocalDateTime dateResolved) {
+    public void setDateResolved(Timestamp dateResolved) {
         this.dateResolved = dateResolved;
     }
 

@@ -4,7 +4,6 @@ import models.Reimbursement;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +42,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 
             while(rs.next()){
                 reimbursements.add(new Reimbursement(rs.getInt(1), rs.getDouble(2),
-                        // structure to manage java LocalDateTime and postgresql timestamp
-                        rs.getObject(3, LocalDateTime.class), rs.getObject(4, LocalDateTime.class),
+                        rs.getTimestamp(3), rs.getTimestamp(4),
                         rs.getString(5), rs.getBytes(6), rs.getInt(7),
                         rs.getString(8),rs.getString(9), rs.getInt(10), rs.getString(11),
                         rs.getString(12), rs.getInt(13), rs.getString(14), rs.getInt(15),
@@ -69,7 +67,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 
             while(rs.next()){
                 reimbursement = new Reimbursement(rs.getInt(1), rs.getDouble(2),
-                        rs.getObject(3, LocalDateTime.class), rs.getObject(4, LocalDateTime.class),
+                        rs.getTimestamp(3), rs.getTimestamp(4),
                         rs.getString(5), rs.getBytes(6), rs.getInt(7),
                         rs.getString(8),rs.getString(9), rs.getInt(10), rs.getString(11),
                         rs.getString(12), rs.getInt(13), rs.getString(14), rs.getInt(15),
@@ -81,6 +79,31 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
         }
 
         return reimbursement;
+    }
+
+    @Override
+    public List<Reimbursement> getEmployeeReimbursements(Integer employeeId) {
+        List<Reimbursement> reimbursements = new ArrayList<>();
+
+        try(Connection conn = DriverManager.getConnection(url, username, password)){
+            String sql = "SELECT * FROM reimbursement WHERE reimb_author = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, employeeId);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                reimbursements.add(new Reimbursement(rs.getInt(1), rs.getDouble(2),
+                        rs.getTimestamp(3), rs.getTimestamp(4),
+                        rs.getString(5), rs.getBytes(6), rs.getInt(7),
+                        rs.getString(8),rs.getString(9), rs.getInt(10), rs.getString(11),
+                        rs.getString(12), rs.getInt(13), rs.getString(14), rs.getInt(15),
+                        rs.getString(16)));
+            }
+        }
+        catch (SQLException e) {
+            logger.error(e);
+        }
+        return reimbursements;
     }
 
     @Override
@@ -98,7 +121,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setDouble(1, reimbursement.getAmount());
-            ps.setObject(2, reimbursement.getDateSubmitted());
+            ps.setTimestamp(2, reimbursement.getDateSubmitted());
             ps.setString(3, reimbursement.getDescription());
             ps.setInt(4, reimbursement.getAuthorId());
             ps.setInt(5, reimbursement.getStatusId());
@@ -112,13 +135,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
     }
 
     @Override
-    public void updateReimbursement(Integer reimbursementId, LocalDateTime dateResolved, Integer resolverId, Integer statusId) {
+    public void updateReimbursement(Integer reimbursementId, Timestamp dateResolved, Integer resolverId, Integer statusId) {
         try(Connection conn = DriverManager.getConnection(url, username, password)){
             String sql = "UPDATE ers_reimbursement SET reimb_resolved = ?, reimb_resolver = ?, reimb_status_id = ? WHERE reimb_id = ?;";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setObject(1, dateResolved);
+            ps.setTimestamp(1, dateResolved);
             ps.setInt(2, resolverId);
             ps.setInt(3, statusId);
             ps.setInt(4, reimbursementId);

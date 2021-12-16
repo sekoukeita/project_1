@@ -101,7 +101,7 @@ class UserServiceTest {
     void createUserReturnsFalse() {
         //ARRANGE
             // password longer than 50 characters.
-        User userToCreate = new User("secksonr9", "1707111111111111111111111111111111111111111111111111111111111111980qqqqq",
+        User userToCreate = new User("secksonr9", "1707111111111111111111111111111aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1980qqqqq",
                 "Sekou", "Keita", "K_sekou9@yahoo.fr", 2);
 
         /* Conditions:

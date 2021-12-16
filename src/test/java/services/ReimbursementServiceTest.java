@@ -6,6 +6,7 @@ import models.User;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,12 +29,15 @@ class ReimbursementServiceTest {
         //ARRANGE
             // Expected result
         List<Reimbursement> expectedResult = new ArrayList<>();
-        expectedResult.add(new Reimbursement(1, 1000.0, LocalDateTime.of(2021, 12, 1, 0, 0),
+        expectedResult.add(new Reimbursement(1, 1000.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 0, 0)),
                 null, "Vacation in Miami", null, 1, "Sekou",
                 "Keita", null, null, null, 1, "Pending", 2, "TRAVEL"));
-        expectedResult.add(new Reimbursement(2, 2000.0, LocalDateTime.of(2021, 12, 2, 0, 0),
+        expectedResult.add(new Reimbursement(2, 2000.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 2, 0, 0)),
                 null, "Stay at Hilton New York city", null, 2, "sayon",
-                "Traore", null, null, null, 1, "Pending", 1, "LODGING"));
+                "Traore", null, null, null, 1, "Pending",
+                1, "LODGING"));
 
         Mockito.when(reimbursementDao.getReimbursements()).thenReturn(expectedResult);
 
@@ -45,10 +49,40 @@ class ReimbursementServiceTest {
     }
 
     @Test
+    void getEmployeeReimbursements() {
+        //ARRANGE
+        List<Reimbursement> reimbursements = new ArrayList<>();
+        reimbursements.add(new Reimbursement(1, 1000.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 0, 0)),
+                null, "Vacation in Miami", null, 1, "Sekou",
+                "Keita", null, null, null, 1, "Pending", 2, "TRAVEL"));
+        reimbursements.add(new Reimbursement(2, 2000.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 2, 0, 0)),
+                null, "Stay at Hilton New York city", null, 2, "sayon",
+                "Traore", null, null, null, 1, "Pending",
+                1, "LODGING"));
+
+        // Expected result
+        List<Reimbursement> expectedResult = new ArrayList<>();
+        expectedResult.add(new Reimbursement(1, 1000.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 0, 0)),
+                null, "Vacation in Miami", null, 1, "Sekou",
+                "Keita", null, null, null, 1, "Pending", 2, "TRAVEL"));
+
+        Mockito.when(reimbursementDao.getEmployeeReimbursements(reimbursements.get(0).getAuthorId())).thenReturn(expectedResult);
+
+        //ACT
+        List<Reimbursement> actualResult = reimbursementService.getEmployeeReimbursements(reimbursements.get(0).getAuthorId());
+
+        //ASSERT
+        assertEquals(expectedResult.toString(), actualResult.toString());
+    }
+
+    @Test
     void getReimbursement() {
         // Expected result
         Reimbursement expectedResult = new Reimbursement(1, 1000.0,
-                LocalDateTime.of(2021, 12, 1, 0, 0), null,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 0, 0)), null,
                 "Vacation in Miami", null, 1, "Sekou", "Keita",
                 null, null, null, 1, "Pending", 2, "TRAVEL");
 
@@ -66,13 +100,15 @@ class ReimbursementServiceTest {
     void createReimbursementReturnTrue() {
         //ARRANGE
         Reimbursement reimbursementToCreate = new Reimbursement(1000.0,
-                LocalDateTime.of(2021, 12, 2, 0, 0), "Stay at Hilton New York city",
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 2, 0, 0)),
+                "Stay at Hilton New York city",
                 2, 1, 1);
 
-        /* Conditions:
-            - amount: >0
-            - dateSubmitted: not in the future
-        * */
+             /*Conditions:
+                        - amount: >0
+                        - dateSubmitted: not in the future
+                    *
+            */
 
         //ACT
         Boolean actualResult = reimbursementService.createReimbursement(reimbursementToCreate);
@@ -86,13 +122,14 @@ class ReimbursementServiceTest {
         //ARRANGE
             // the date is in the future
         Reimbursement reimbursementToCreate = new Reimbursement(1000.0,
-                LocalDateTime.of(2022, 12, 2, 0, 0), "Stay at Hilton New York city",
+                Timestamp.valueOf(LocalDateTime.of(2022, 12, 2, 0, 0)),
+                "Stay at Hilton New York city",
                 2, 1, 1);
 
-        /* Conditions:
-            - amount: >0
-            - dateSubmitted: not in the future
-        * */
+            /* Conditions:
+                        - amount: >0
+                        - dateSubmitted: not in the future
+                    **/
 
         //ACT
         Boolean actualResult = reimbursementService.createReimbursement(reimbursementToCreate);
@@ -108,11 +145,12 @@ class ReimbursementServiceTest {
         User user = new User( 1,"Secksonr9", "p4ssw0rd", "Sekou",
                 "Keita", "sekou.keita@revature.net", 2);
 
-        LocalDateTime dateResolved = LocalDateTime.parse("2022-11-01T00:00");
+        Timestamp dateResolved = Timestamp.valueOf(LocalDateTime.parse("2022-11-01T00:00"));
         Integer statusId = 2; // for approved
 
         // Reimbursement to be updated
-        Reimbursement reimbursement = new Reimbursement(1, 1000.0, LocalDateTime.of(2021, 12, 1, 0, 0),
+        Reimbursement reimbursement = new Reimbursement(1, 1000.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 0, 0)),
                 "Vacation in Miami", 1, 1, 2);
 
 
@@ -129,7 +167,8 @@ class ReimbursementServiceTest {
     void deleteReimbursement() {
         //ARRANGE
             // Reimbursement to delete
-        Reimbursement reimbursement = new Reimbursement(1, 1000.0, LocalDateTime.of(2021, 12, 1, 0, 0),
+        Reimbursement reimbursement = new Reimbursement(1, 1000.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 0, 0)),
                 "Vacation in Miami", 1, 1, 2);
 
 

@@ -9,6 +9,7 @@ import services.ReimbursementService;
 import services.UserService;
 import util.H2Util;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -44,14 +45,19 @@ public class MainTesting {
         //////////////// Test ReimbursementDao ///////////////////////
         ReimbursementDao reimbDao = new ReimbursementDaoImpl();
 
-       /* List<Reimbursement> reimbursements = reimbDao.getReimbursements();
+        /*List<Reimbursement> reimbursements = reimbDao.getReimbursements();
+        System.out.println(reimbursements);
+        System.out.println(reimbursements.size());
+*/
+        /*List<Reimbursement> reimbursements = reimbDao.getEmployeeReimbursements(6);
         System.out.println(reimbursements);
         System.out.println(reimbursements.size());*/
 
         /*Reimbursement reimbursement = reimbDao.getReimbursement(2);
         System.out.println(reimbursement);*/
 
-       /* Reimbursement reimb = new Reimbursement(2000.0, LocalDateTime.of(2021, 12, 1, 0, 0),
+        /*Reimbursement reimb = new Reimbursement(1.0,
+                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 10, 50, 0)),
                 "Exam prep", 6, 1, 4);
         reimbDao.createReimbursement(reimb);*/
 
@@ -68,37 +74,43 @@ public class MainTesting {
         System.out.println(list);
         System.out.println(list.size());*/
 
-       /* User user1 = us.getUser(4);
-        User user2 = us.getUser("sekoukeita");
+        /*User user1 = us.getUser(4);
+        User user2 = us.getUser("keita");
         System.out.println("user1 " + user1);
-        System.out.println("user1 " + user2);*/
+        System.out.println("user2 " + user2);*/
 
-        /*User user = new User("huskeita", "huss2016", "jhuu", "Keaita", "pr@gmail.com", 2);
+        /*User user = new User("huskei", "ak", "", "Keallita", "gsdfhtfkgjjn@gmail.com", 2);
         us.createUser(user);*/
 
-        /*User user3 = new User(14, "seckon", "17071980", "Sekou", "Keita", "K_sekou@yahoo", 2);
-        us.updateUser(user3);
-        System.out.println(user3);*/
+        /*User user = new User(17, "s", "017071980", "Sekou", "Keita", "aK_sekou@yahoo", 1);
+        us.updateUser(user);
+        System.out.println(user);*/
 
         //us.deleteUser(14);
 
         //////////////////////Test reimbursementService //////////////////////////
         ReimbursementService rs = new ReimbursementService();
 
-        List<Reimbursement> list = rs.getReimbursements();
+        /*List<Reimbursement> list = rs.getReimbursements();
+        System.out.println(list);
+        System.out.println(list.size());*/
+
+        List<Reimbursement> list = rs.getEmployeeReimbursements(4);
         System.out.println(list);
         System.out.println(list.size());
 
-        /*Reimbursement reimbursement = rs.getReimbursement(2);
+        /*Reimbursement reimbursement = rs.getReimbursement(8);
         System.out.println(reimbursement);*/
 
-      /* Reimbursement reimb = new Reimbursement(5.0, LocalDateTime.of(2021, 12, 1, 0, 0),
+       /*Reimbursement reimb = new Reimbursement(18.0,
+               Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 15, 30)),
                 "Exam prep", 6, 1, 4);
-        rs.createReimbursement(reimb);
-*/
-       /* rs.updateReimbursement(16, LocalDateTime.of(2021, 12, 1, 0, 0),
-                4, 2);*/
+        rs.createReimbursement(reimb);*/
 
+
+        /*rs.updateReimbursement(12, Timestamp.valueOf(LocalDateTime.now()),
+                4, 2);
+*/
         //rs.deleteReimbursement(15);
 
 

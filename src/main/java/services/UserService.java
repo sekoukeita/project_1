@@ -35,25 +35,25 @@ public class UserService {
         return userDao.getUser(username);
     }
 
-
     public Boolean createUser(User user){
 
         if ((user.getUserName().length() > 50) | (getListOfUsernames().contains(user.getUserName())) | (user.getUserName().isEmpty())){
             if (user.getUserName().length() > 50){
                 System.out.println("The username should not be longer than 50 characters!");
             }
-            else if (getListOfUsernames().contains(user.getUserName())){
+            if (getListOfUsernames().contains(user.getUserName())){
                 System.out.println("This username already exists!. Enter another one.");
             }
-            else if (user.getUserName().isEmpty())
+            if (user.getUserName().isEmpty()){
                 System.out.println("Enter a username, please!");
+            }
             return false;
         }
         else if ((user.getPassword().length() > 50) | (user.getPassword().isEmpty())){
             if (user.getPassword().length() > 50){
                 System.out.println("The password should not be longer than 50 characters!");
             }
-            else if (user.getPassword().isEmpty())
+            if (user.getPassword().isEmpty())
                 System.out.println("Enter a password, please!");
             return false;
         }
@@ -69,20 +69,19 @@ public class UserService {
             if (user.getEmail().length() > 50){
                 System.out.println("The email should not be longer than 50 characters!");
             }
-            else if (getListOfEmails().contains(user.getEmail())){
+            if (getListOfEmails().contains(user.getEmail())){
                 System.out.println("This email already exists!. Enter another one.");
             }
-            else if (user.getEmail().isEmpty())
+            if (user.getEmail().isEmpty())
                 System.out.println("Enter an email, please!");
             return false;
         }
         else{
             userDao.createUser(user);
+            System.out.println("The user has been successfully added!");
             return true;
         }
     }
-
-
 
     public void updateUser(User user){
         userDao.updateUser(user);
