@@ -14,7 +14,7 @@ public class LoginController {
 
     // Methods
     public static void login(Context ctx){
-        User user = ctx.bodyAsClass(User.class); // user object gets username, password and role id form the request body
+        User user = ctx.bodyAsClass(User.class); // user object gets username, password form the request body
 
         String passwordFromLogin = user.getPassword();
         String usernameFromLogin = user.getUserName();
@@ -32,11 +32,11 @@ public class LoginController {
                 ctx.json(new JsonResponse(true, "Login successful", userDto));
             }
             else{
-                ctx.result("Wrong username or password");
+                ctx.json(new JsonResponse(false, "Wrong login or password", null));
             }
         }
         else{
-            ctx.result("Wrong username or password");
+            ctx.json(new JsonResponse(false, "Wrong login or password", null));
         }
     }
 

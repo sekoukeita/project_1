@@ -53,8 +53,8 @@ public class MainTesting {
         System.out.println(reimbursements);
         System.out.println(reimbursements.size());*/
 
-        /*Reimbursement reimbursement = reimbDao.getReimbursement(2);
-        System.out.println(reimbursement);*/
+        Reimbursement reimbursement = reimbDao.getReimbursement(2);
+        System.out.println(reimbursement);
 
         /*Reimbursement reimb = new Reimbursement(1.0,
                 Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 10, 50, 0)),
@@ -95,18 +95,17 @@ public class MainTesting {
         System.out.println(list);
         System.out.println(list.size());*/
 
-        List<Reimbursement> list = rs.getEmployeeReimbursements(4);
+       /* List<Reimbursement> list = rs.getEmployeeReimbursements(4);
         System.out.println(list);
-        System.out.println(list.size());
+        System.out.println(list.size());*/
 
         /*Reimbursement reimbursement = rs.getReimbursement(8);
         System.out.println(reimbursement);*/
 
-       /*Reimbursement reimb = new Reimbursement(18.0,
+       Reimbursement reimb = new Reimbursement(18.0,
                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 15, 30)),
                 "Exam prep", 6, 1, 4);
-        rs.createReimbursement(reimb);*/
-
+        rs.createReimbursement(reimb);
 
         /*rs.updateReimbursement(12, Timestamp.valueOf(LocalDateTime.now()),
                 4, 2);

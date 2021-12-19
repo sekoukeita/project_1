@@ -16,9 +16,9 @@ public class Reimbursement {
     // MEMBER VARIABLES
     private Integer reimbursementId;
     private Double amount;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm a z")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Timestamp dateSubmitted; // LocalDateTime is the correspondent of postgresql timestamp.
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm a z")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Timestamp dateResolved;
     private String description;
     private byte[] receipt;
