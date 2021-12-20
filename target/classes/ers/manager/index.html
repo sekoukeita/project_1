@@ -23,14 +23,14 @@
                     Filter Reimbursements By Status
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li><button class="dropdown-item" type="button" name="dropdown" value=1>Pending</button></li>
-                    <li><button class="dropdown-item" type="button" name="dropdown" value=2>Approved</button></li>
-                    <li><button class="dropdown-item" type="button" name="dropdown" value=3>Denied</button></li>
+                    <li><button onclick="filterByPending()" class="dropdown-item" type="button" name="dropdown">Pending</button></li>
+                    <li><button onclick="filterByApproved()" class="dropdown-item" type="button" name="dropdown">Approved</button></li>
+                    <li><button onclick="filterByDenied()" class="dropdown-item" type="button" name="dropdown">Denied</button></li>
                   </ul>
                 </div>
             </div>
-            <button class="btn btn-outline-danger" onclick="logout()">Logout</button>
           </div>
+          <button class="btn btn-outline-danger" onclick="logout()">Logout</button>
         </div>
       </nav>
 
@@ -45,8 +45,7 @@
                 <th scope="col">Description</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Date Submitted</th>
-                <th scope="col">Date Resolved</th>
-                <th scope="col">Resolver</th>
+                <th scope="col">Author</th>
                 <th scope="col">Status</th>
                 <th scope="col">Decision</th>
               </tr>
@@ -55,13 +54,31 @@
               <!-- - the class value is based on the status: red for pending and default for the rest
                     - if status is pending, display decision part
                     - on select the radion button, update the reimburesemtt-->
-              <tr class="table-danger">
+              <!-- <tr class="table-danger">
                 <td>1</td>
                 <td>LOADGING</td>
                 <td>Stay a Hilton hote New York city</td>
                 <td>$500</td>
                 <td>12/10/2021</td>
                 <td></td>
+                <td>Pending</td>
+                <td>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status-decision-id" id="status-approved-id" value=2>
+                    <label class="form-check-label" for="inlineRadio1">Approved</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status-decision-id" id="status-denied-id" value=3>
+                    <label class="form-check-label" for="inlineRadio2">Denied</label>
+                  </div>
+                </td>
+              </tr>
+              <tr class="table-danger">
+                <td>1</td>
+                <td>LOADGING</td>
+                <td>Stay a Hilton hote New York city</td>
+                <td>$500</td>
+                <td>12/10/2021</td>
                 <td></td>
                 <td>Pending</td>
                 <td>
@@ -74,36 +91,7 @@
                     <label class="form-check-label" for="inlineRadio2">Denied</label>
                   </div>
                 </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>TRAVEL</td>
-                <td>Round trip fly to Miami</td>
-                <td>$1200</td>
-                <td>10/10/2021</td>
-                <td>11/15/2021</td>
-                <td>Sayon Traore</td>
-                <td>Approved</td>
-                <tr class="table-danger">
-                  <td>3</td>
-                  <td>TRAVEL</td>
-                  <td>Round trip fly to Miami</td>
-                  <td>$1200</td>
-                  <td>10/10/2021</td>
-                  <td>11/15/2021</td>
-                  <td>Sayon Traore</td>
-                  <td>Pendibg</td>
-                  <td>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="status-decision-3" id="status-approved-3" value=2>
-                      <label class="form-check-label" for="inlineRadio1">Approved</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="status-decision-3" id="status-denied-3" value=3>
-                      <label class="form-check-label" for="inlineRadio2">Denied</label>
-                    </div>
-                  </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         

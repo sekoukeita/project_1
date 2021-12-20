@@ -102,14 +102,13 @@ public class MainTesting {
         /*Reimbursement reimbursement = rs.getReimbursement(8);
         System.out.println(reimbursement);*/
 
-       Reimbursement reimb = new Reimbursement(18.0,
+      /* Reimbursement reimb = new Reimbursement(18.0,
                Timestamp.valueOf(LocalDateTime.of(2021, 12, 1, 15, 30)),
                 "Exam prep", 6, 1, 4);
-        rs.createReimbursement(reimb);
+        rs.createReimbursement(reimb);*/
 
-        /*rs.updateReimbursement(12, Timestamp.valueOf(LocalDateTime.now()),
+        rs.updateReimbursement(12, Timestamp.valueOf(LocalDateTime.now()),
                 4, 2);
-*/
         //rs.deleteReimbursement(15);
 
 

@@ -17,6 +17,11 @@ table{
     justify-content: space-around;
 }
 
+.container-fluid{
+    display: flex;
+    justify-content:space-between;
+}
+
 h4{
     color: blue;
     text-align: center;
