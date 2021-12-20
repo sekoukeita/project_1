@@ -23,3 +23,9 @@ DROP TABLE ERS_REIMBURSEMENT_STATUS; [90107-200]
 	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
 	at util.H2Util.dropTables(H2Util.java:112)
 	at MainTesting.main(MainTesting.java:57)
+2021-12-20 12:49:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_STATUS (
+	REIMB_STATUS_ID serial PRIMARY KEY,
+	REIMB_STATUS varchar(10)
+); [42101-200]

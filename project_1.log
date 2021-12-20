@@ -77,3 +77,48 @@ UPDATE ers_reimbursement SET reimb_resolved = ?, reimb_resolver = ?, reimb_statu
 2021-12-15 20:28:09 ERROR ReimbursementDaoImpl:108 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
   Detail: Key (reimb_author)=(1) is not present in table "ers_users".
 2021-12-15 22:49:19 ERROR UserDaoImpl:94 - org.postgresql.util.PSQLException: The connection attempt failed.
+2021-12-20 09:37:25 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 09:51:22 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 09:55:51 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:07:06 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:15:00 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:16:37 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:36:55 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:37:42 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:39:16 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:41:54 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:54:37 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 10:57:52 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 11:20:02 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 11:22:07 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 11:24:31 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 11:29:39 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 11:50:01 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 12:31:55 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".
+2021-12-20 12:49:29 ERROR H2Util:110 - org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ERS_REIMBURSEMENT_STATUS" already exists; SQL statement:
+CREATE TABLE ERS_REIMBURSEMENT_STATUS (
+	REIMB_STATUS_ID serial PRIMARY KEY,
+	REIMB_STATUS varchar(10)
+); [42101-200]
+2021-12-20 12:49:29 ERROR UserDaoImpl:115 - org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.CONSTRAINT_INDEX_A ON PUBLIC.ERS_USERS(ERS_USERNAME) VALUES 1"; SQL statement:
+INSERT INTO ers_users values(DEFAULT, ?, ?, ?, ?, ?, ?); [23505-200]
+2021-12-20 14:40:56 ERROR ReimbursementDaoImpl:133 - org.postgresql.util.PSQLException: ERROR: insert or update on table "ers_reimbursement" violates foreign key constraint "ers_reimbursement_reimb_author_fkey"
+  Detail: Key (reimb_author)=(0) is not present in table "ers_users".

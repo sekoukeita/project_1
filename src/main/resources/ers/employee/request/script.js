@@ -53,7 +53,9 @@ async function createReimbursement(e){
         })
     });
     
-    alert("The request has been successfully submitted!.")
-
+    //alert("The request has been successfully submitted!.")
+    amountElt.value = "";
+    dateSubmittedElt.value = "";
+    descriptionElt.value = "";
 }
 
